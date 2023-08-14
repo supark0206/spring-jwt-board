@@ -23,6 +23,9 @@ logging.level:
   org.hibernate.SQL: debug
 # org.hibernate.type: trace
 
+jwt:
+  secret: VlwEyVBsYt9V7zq57TejMnVUyzblYcfPQye08f7MGVA9XkHa
+
 server:
   error:
     include-stacktrace: never
