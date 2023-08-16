@@ -1,0 +1,32 @@
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  datasource:
+    url: jdbc:mysql://localhost:3307/wanted
+    username: wanted
+    password: wanted
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        # show_sql: true
+        format_sql: true
+  data:
+    web:
+      pageable:
+        one-indexed-parameters: true
+        max-page-size: 2000
+
+logging.level:
+  org.hibernate.SQL: debug
+# org.hibernate.type: trace
+
+jwt:
+  secret: VlwEyVBsYt9V7zq57TejMnVUyzblYcfPQye08f7MGVA9XkHa
+
+server:
+  error:
+    include-stacktrace: never
