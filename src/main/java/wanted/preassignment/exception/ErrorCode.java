@@ -14,6 +14,8 @@ public enum ErrorCode {
 
     //404 NOT_FOUND : 리소스를 찾을 수 없음
     NOT_FOUND(HttpStatus.NOT_FOUND, "리소스를 찾을 수 없습니다."),
+    NOT_FOUND_BOARD(HttpStatus.NOT_FOUND, "게시글을 찾을 수 없습니다."),
+    NOT_FOUND_USER_ID(HttpStatus.NOT_FOUND, "사용자를 찾을 수 없습니다."),
 
     //409 CONFLICT : 리소스 충돌
     EXIST_USER_EMAIL(HttpStatus.CONFLICT, "중복된 이메일이 존재합니다."),

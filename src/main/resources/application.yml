@@ -17,7 +17,8 @@ spring:
   data:
     web:
       pageable:
-        default-page-size: 5
+        one-indexed-parameters: true
+        max-page-size: 2000
 
 logging.level:
   org.hibernate.SQL: debug

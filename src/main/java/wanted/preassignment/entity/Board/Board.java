@@ -1,8 +1,6 @@
 package wanted.preassignment.entity.Board;
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import wanted.preassignment.entity.BaseTimeEntity;
 import wanted.preassignment.entity.User.User;
@@ -15,9 +13,12 @@ import static javax.persistence.FetchType.LAZY;
 @Entity
 @EnableJpaAuditing
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
+@Builder
 public class Board extends BaseTimeEntity {
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "board_id")
     private Long id;
 
@@ -29,6 +30,7 @@ public class Board extends BaseTimeEntity {
     private BoardCategory boardCategory;
 
     @ManyToOne(fetch = LAZY)
+    @JoinColumn(name = "user_id")
     private User user;
 
 }

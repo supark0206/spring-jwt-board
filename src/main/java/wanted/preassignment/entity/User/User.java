@@ -20,7 +20,8 @@ import java.util.List;
 @Builder
 public class User extends BaseTimeEntity implements UserDetails {
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private Long id;
 

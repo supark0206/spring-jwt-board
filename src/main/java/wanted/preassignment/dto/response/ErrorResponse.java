@@ -1,6 +1,7 @@
-package wanted.preassignment.exception;
+package wanted.preassignment.dto.response;
 
 import lombok.Getter;
+import wanted.preassignment.exception.ErrorCode;
 
 @Getter
 public class ErrorResponse {
