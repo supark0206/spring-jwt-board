@@ -34,8 +34,8 @@ public class WebSecurityConfig {
                 .and().authorizeRequests()
 
                 // 페이지 권한 설정
-                .antMatchers("/user/**").authenticated()
-                .antMatchers("/**").permitAll()
+                .antMatchers("/api/user/**","/api/board/**").authenticated()
+                .antMatchers("/api/**").permitAll()
                 .and()
 
 

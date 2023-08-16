@@ -21,6 +21,7 @@ import wanted.preassignment.repository.UserRepository;
 import wanted.preassignment.service.UserService;
 
 @RequiredArgsConstructor
+@Transactional(readOnly = true)
 @Service
 public class UserServiceImpl implements UserService {
 

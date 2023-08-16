@@ -15,14 +15,14 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 @NoArgsConstructor
 public class BoardListResponse {
-    private List<BoardDetailResponse> boardList;
+    private List<BoardListDetailResponse> boardList;
     private int totalPages;
 
     public static BoardListResponse boardPageFrom(Page<Board> boardPage) {
-        List<BoardDetailResponse> boardList =
+        List<BoardListDetailResponse> boardList =
                 boardPage.getContent()
                 .stream()
-                .map(BoardDetailResponse::boardListFrom)
+                .map(BoardListDetailResponse::boardListDetailFrom)
                 .collect(Collectors.toList());
 
         return BoardListResponse.builder()

@@ -16,7 +16,6 @@ import javax.persistence.ManyToOne;
 
 import java.time.LocalDateTime;
 
-import static javax.persistence.FetchType.LAZY;
 
 @Data
 @AllArgsConstructor
@@ -36,15 +35,6 @@ public class BoardDetailResponse {
     private LocalDateTime createDate;
 
     private LocalDateTime updateDate;
-
-    public static BoardDetailResponse boardListFrom(Board board){
-        return BoardDetailResponse.builder()
-                .id(board.getId())
-                .title(board.getTitle())
-                .createBy(board.getUser().getName())
-                .createDate(board.getCreateDate())
-                .build();
-    }
 
     public static BoardDetailResponse boardDetailFrom(Board board){
         return BoardDetailResponse.builder()

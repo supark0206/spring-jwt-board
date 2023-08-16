@@ -2,6 +2,7 @@ package wanted.preassignment.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import wanted.preassignment.config.annotation.LoginUser;
 import wanted.preassignment.config.jwt.TokenDto;
@@ -16,6 +17,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("/api")
 public class UserController {
 
     private final UserService userService;

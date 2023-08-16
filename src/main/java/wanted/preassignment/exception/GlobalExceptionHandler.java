@@ -1,8 +1,12 @@
 package wanted.preassignment.exception;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import wanted.preassignment.dto.response.ErrorResponse;
@@ -27,6 +31,22 @@ public class GlobalExceptionHandler {
         return ResponseEntity
                 .status(ErrorCode.METHOD_NOT_ALLOWED.getStatus().value())
                 .body(new ErrorResponse(ErrorCode.METHOD_NOT_ALLOWED));
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public Object methodArgumentNotValidException(MethodArgumentNotValidException e) {
+
+        ObjectError objectError = e.getBindingResult()
+                .getAllErrors().get(0);
+
+        return ResponseEntity
+                .status(HttpStatus.BAD_REQUEST)
+                .body(new ErrorResponse(
+                        400,
+                        e.getObjectName(),
+                        "BAD_REQUEST_JOIN_"+objectError.getCode().toUpperCase(),
+                        objectError.getDefaultMessage())
+                );
     }
 
     //500 Exception
